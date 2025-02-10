@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krisah Montessori School</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="font-sans">
     <!-- Navigation -->
@@ -14,13 +15,17 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <img src="logo.png" alt="School Logo" class="h-12 w-auto mr-2">
-                    <span class="text-2xl font-bold text-green-700">Krisah Montessori</span>
+                    <img src="images/logo.png" alt="School Logo" class="h-12 w-auto mr-2">
+                    <span class="text-2xl font-bold text-green-700 hidden md:inline">Krisah Montessori</span>
                 </div>
                 
                 <!-- Mobile menu button -->
                 <button id="mobile-menu-button" class="md:hidden">
-                    <i class="fas fa-bars text-green-700 text-2xl"></i>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </button>
 
                 <!-- Desktop Navigation -->
@@ -36,30 +41,48 @@
             </div>
 
             <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="#home" class="block py-2 text-gray-600 hover:text-green-700">Home</a>
-                <a href="#about" class="block py-2 text-gray-600 hover:text-green-700">About Us</a>
-                <a href="#admissions" class="block py-2 text-gray-600 hover:text-green-700">Admissions</a>
-                <a href="#gallery" class="block py-2 text-gray-600 hover:text-green-700">Gallery</a>
-                <a href="#news" class="block py-2 text-gray-600 hover:text-green-700">News & Events</a>
-                <a href="#faq" class="block py-2 text-gray-600 hover:text-green-700">FAQs</a>
-                <a href="#contact" class="block py-2 text-gray-600 hover:text-green-700">Contact</a>
+            <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 md:hidden">
+                <div class="p-4">
+                    <a href="#home" class="block py-2 text-gray-600 hover:text-green-700">Home</a>
+                    <a href="#about" class="block py-2 text-gray-600 hover:text-green-700">About Us</a>
+                    <a href="#admissions" class="block py-2 text-gray-600 hover:text-green-700">Admissions</a>
+                    <a href="#gallery" class="block py-2 text-gray-600 hover:text-green-700">Gallery</a>
+                    <a href="#news" class="block py-2 text-gray-600 hover:text-green-700">News & Events</a>
+                    <a href="#faq" class="block py-2 text-gray-600 hover:text-green-700">FAQs</a>
+                    <a href="#contact" class="block py-2 text-gray-600 hover:text-green-700">Contact</a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Add this right after the navigation section -->
+    <div id="menu-overlay" class="overlay"></div>
+
     <!-- Hero Section -->
     <section id="home" class="pt-20">
         <div class="relative h-[600px]">
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="absolute inset-0 flex items-center justify-center text-center">
-                <div class="text-white">
-                    <h1 class="text-5xl font-bold mb-4">Welcome to Krisah Montessori School</h1>
-                    <p class="text-xl mb-8">Nurturing Excellence in Western Region, Ghana</p>
-                    <a href="#contact" class="bg-green-700 text-white px-8 py-3 rounded-full hover:bg-green-600 transition">Contact Us</a>
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="relative h-[600px]">
+                            <div class="absolute inset-0 bg-black/50"></div>
+                            <div class="absolute inset-0 flex items-center justify-center text-center">
+                                <div class="text-white">
+                                    <h1 class="text-5xl font-bold mb-4">Welcome to Krisah Montessori School</h1>
+                                    <p class="text-xl mb-8">Nurturing Excellence in Western Region, Ghana</p>
+                                    <a href="#contact" class="bg-green-700 text-white px-8 py-3 rounded-full hover:bg-green-600 transition">Contact Us</a>
+                                </div>
+                            </div>
+                            <img src="images/school-building.jpg" alt="School Building" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <!-- Add more slides as needed -->
                 </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-            <img src="school-building.jpg" alt="School Building" class="w-full h-full object-cover">
         </div>
     </section>
 
@@ -209,6 +232,80 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-green-700">What Parents Say</h2>
+            <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="images/parent1.jpg" alt="Parent" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">Sarah Johnson</h4>
+                                    <p class="text-gray-600 text-sm">Parent of John, Grade 3</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"The Montessori approach at Krisah has helped my son become more independent and confident. The teachers are exceptional and truly care about each child's development."</p>
+                            <div class="flex text-yellow-400 mt-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="images/parent2.jpg" alt="Parent" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">Michael Owusu</h4>
+                                    <p class="text-gray-600 text-sm">Parent of Emma, Grade 2</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"We've seen remarkable progress in our daughter's academic and social skills since joining Krisah. The school's holistic approach to education is exactly what we were looking for."</p>
+                            <div class="flex text-yellow-400 mt-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <img src="images/parent3.jpg" alt="Parent" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-semibold">Abena Mensah</h4>
+                                    <p class="text-gray-600 text-sm">Parent of Kwame, Grade 1</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-600">"The facilities are excellent, and the curriculum is well-rounded. My son loves going to school every day, and that's the best testimony I can give about Krisah Montessori."</p>
+                            <div class="flex text-yellow-400 mt-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20">
         <div class="container mx-auto px-4">
@@ -283,7 +380,8 @@
         </div>
     </footer>
 
-    <script src="./js/index.js">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/index.js">
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
